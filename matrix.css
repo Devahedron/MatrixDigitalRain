@@ -1,4 +1,10 @@
+@font-face {
+  font-family: monocraft; /* set name */
+  src: url(Monocraft-otf/Monocraft.otf); /* url of the font */
+}
+
 body {
     background-color: black;
     color: #03A062;
+    font-family: monocraft;
 }
