@@ -1,7 +1,7 @@
 function randomString(length) {
 
     var string = "";
-    var characters = "";
+    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789☺♬⚐❤⚥";
     var charactersLength = characters.length;
 
     for (var i = 0; i < length; i++) {
