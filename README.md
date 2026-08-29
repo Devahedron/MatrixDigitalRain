@@ -1,2 +1,2 @@
 # Screensavers
-Some screensavers made in python
+Some screensavers
