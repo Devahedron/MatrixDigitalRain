@@ -1,7 +1,7 @@
 function randomString(length) {
 
     var string = "";
-    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789☺⚥";
+    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥";
     var charactersLength = characters.length;
 
     for (var i = 0; i < length; i++) {
@@ -11,4 +11,4 @@ function randomString(length) {
     return string;
 }
 
-document.getElementById("text0").innerText = randomString(10);
+document.getElementById("text0").innerText = randomString(100);

@@ -9,6 +9,7 @@ body {
     font-family: monocraft;
 }
 
-h2 {
-    margin: 0%;
+#text0 {
+    margin: 0px;
+    font-size: 1.49vw;
 }
