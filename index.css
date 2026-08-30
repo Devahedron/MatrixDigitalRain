@@ -25,8 +25,6 @@ p {
 
 #canvasMatrix {
     display: block;
-    width: 100vw;
-    height: 100vh;
     /* pixel rendering */
     image-rendering: pixelated;
     image-rendering: crisp-edges;

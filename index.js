@@ -11,16 +11,18 @@ function randomString(length) {
     return string;
 }
 
-//document.getElementById("text0").innerText = randomString(100);
-//document.getElementById("text1").innerText = randomString(100);
-
 const canvas = document.getElementById("matrixCanvas");
 const ctx = canvas.getContext('2d');
 
+canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+
+let columns = 100;
 
 function drawCharAtLoc(string, x, y) {
-    ctx.fillStyle = "#03A062";2
-    ctx.font = "1.5vw Monocraft";
-    ctx.fillText(string, 0+x, 20+y);
+    ctx.fillStyle = "#03A062";
+    ctx.font = 150/columns + "vw Monocraft";
+    ctx.fillText(string, 0+x, (canvas.height*3/columns)+y);
 }
-drawCharAtLoc("Hello World!", 1, 1);
+
+drawCharAtLoc("Hello World!", 0, 0);
