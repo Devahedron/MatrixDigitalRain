@@ -1,12 +1,14 @@
 @font-face {
-  font-family: monocraft; /* set name */
-  src: url(Monocraft-otf/Monocraft.otf); /* url of the font */
+    font-family: 'Monocraft';
+    src: url('https://cdn.jsdelivr.net/gh/IdreesInc/Monocraft@main/dist/Monocraft-ttf/Monocraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
     background-color: black;
     color: #03A062;
-    font-family: monocraft;
+    font-family: Monocraft;
 }
 
 #allText {
