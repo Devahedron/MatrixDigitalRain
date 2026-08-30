@@ -9,12 +9,25 @@ body {
     background-color: black;
     color: #03A062;
     font-family: Monocraft;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    /*cursor: none; */
 }
 
 #allText {
-    font-size: 1.485vw;
+    font-size: 1.5vw;
 }
 
 p {
     margin: 0px;
+}
+
+#canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    /* pixel rendering */
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
