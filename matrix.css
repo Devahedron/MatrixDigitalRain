@@ -9,7 +9,10 @@ body {
     font-family: monocraft;
 }
 
-#text0 {
+#allText {
+    font-size: 1.485vw;
+}
+
+p {
     margin: 0px;
-    font-size: 1.49vw;
 }

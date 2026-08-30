@@ -12,3 +12,4 @@ function randomString(length) {
 }
 
 document.getElementById("text0").innerText = randomString(100);
+document.getElementById("text1").innerText = randomString(100);
