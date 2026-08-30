@@ -14,17 +14,13 @@ function randomString(length) {
 //document.getElementById("text0").innerText = randomString(100);
 //document.getElementById("text1").innerText = randomString(100);
 
-function randomAtLoc(length, loc) {
-    var string = "";
-    for (var i = 0; i < length; i++) {
-        if (i==loc-1) {
-            string += randomString(1);
-        } else {
-            string += " ";
-        }
-    }
+const canvas = document.getElementById("matrixCanvas");
+const ctx = canvas.getContext('2d');
 
-    return string;
+
+function drawCharAtLoc(string, x, y) {
+    ctx.fillStyle = "#03A062";2
+    ctx.font = "1.5vw Monocraft";
+    ctx.fillText(string, 0+x, 20+y);
 }
-
-console.log(randomAtLoc(5, 1));
+drawCharAtLoc("Hello World!", 1, 1);
