@@ -8,12 +8,12 @@ canvas.width = window.innerWidth;
 let numColumns = 80;
 let numRows = numColumns;
 
-let FPS = 10;
+let FPS = 15;
 
 xIncrement = canvas.width/numColumns;
 yIncrement = canvas.height/numRows;
 
-let rainLength = 10;
+let rainLength = 15;
 
 let columns = [];
 
@@ -55,7 +55,13 @@ function drawCharAtLoc(string, x, y) {
 
 // Draws the given character to the given grid location and colors it based on the timer value
 function drawCharAtLocFade(string, time, x, y) {
-    ctx.fillStyle = "#03A062";
+    if (time == rainLength) {
+        ctx.fillStyle = "white";
+    } else if (time == 0) {
+        
+    } else {
+        ctx.fillStyle = "RGBA(3, 160, 98, " + (time/rainLength) + ")";
+    }
     ctx.font = 150/numColumns + "vw Monocraft";
     ctx.fillText(string,
         (x+1/6)*(canvas.width/numColumns),
@@ -139,7 +145,7 @@ function draw() {
     updateMatrix();
     rainDrop();
     rainDrop();
-    drawMatrix();
+    drawMatrixFade();
 }
 
 // Sets draw() to run at the desired frames per second
