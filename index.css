@@ -12,15 +12,6 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /*cursor: none; */
-}
-
-#allText {
-    font-size: 1.5vw;
-}
-
-p {
-    margin: 0px;
 }
 
 #canvasMatrix {
