@@ -46,7 +46,7 @@ function updateSize() {
 
 // Draws the given character to the given grid location
 function drawCharAtLoc(string, x, y) {
-    ctx.fillStyle = "#03A062";
+    ctx.fillStyle = "#00ff99";
     ctx.font = 150/numColumns + "vw Monocraft";
     ctx.fillText(string,
         (x+1/6)*(canvas.width/numColumns),
@@ -60,7 +60,7 @@ function drawCharAtLocFade(string, time, x, y) {
     } else if (time == 0) {
         
     } else {
-        ctx.fillStyle = "RGBA(3, 160, 98, " + (time/rainLength) + ")";
+        ctx.fillStyle = "RGBA(0, 255, 153, " + (time/rainLength) + ")";
     }
     ctx.font = 150/numColumns + "vw Monocraft";
     ctx.fillText(string,
