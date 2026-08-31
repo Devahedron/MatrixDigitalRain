@@ -18,7 +18,7 @@ canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
 let columns = 10;
-let rows = 50;
+let rows = columns/2;
 
 xIncrement = canvas.width/columns;
 yIncrement = canvas.height/rows;
@@ -29,9 +29,12 @@ function drawCharAtLoc(string, x, y) {
     ctx.fillText(string, (x+1/6)*(canvas.width/columns), (canvas.width*(8/6)/columns)+(y*(canvas.width*(8/6)/columns)));
 }
 
-drawCharAtLoc(randomString(1), 0, 0);
-drawCharAtLoc(randomString(1), 0, 1);
-drawCharAtLoc(randomString(1), 1, 0);
-drawCharAtLoc(randomString(1), 2, 1);
-drawCharAtLoc(randomString(1), 3, 2);
-drawCharAtLoc(randomString(1), 4, 3);
+function drawAll() {
+    for (var x = 0; x < columns; x++) {
+        for (var y = 0; y < rows; y++) {
+            drawCharAtLoc(randomString(1), x, y);
+        }
+    }
+}
+
+drawAll();
