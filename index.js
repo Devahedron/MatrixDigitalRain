@@ -1,3 +1,4 @@
+// Returns random string of desired length
 function randomString(length) {
 
     var string = "";
@@ -9,6 +10,11 @@ function randomString(length) {
     }
     
     return string;
+}
+
+// Returns a random character
+function randomChar() {
+    randomString(1);
 }
 
 const canvas = document.getElementById("matrixCanvas");
