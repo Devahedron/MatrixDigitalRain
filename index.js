@@ -91,6 +91,15 @@ function rainDrop() {
     columns[column][0][1] = randomString(1);
 }
 
+// Creates the start of a rainDrop on the matrix
+function rainDropMultiple(amount) {
+    for (var i = 0; i < amount; i++) {
+        column = Math.floor(Math.random() * numColumns);
+        columns[column][0][0] = rainLength;
+        columns[column][0][1] = randomString(1);
+    }
+}
+
 // Updates all vaules in the matrix for the next frame
 function updateMatrix() {
     for (var x = 0; x < numColumns; x++) {
@@ -143,8 +152,7 @@ function draw() {
     clearAll();
     updateSize();
     updateMatrix();
-    rainDrop();
-    rainDrop();
+    rainDropMultiple(3);
     drawMatrixFade();
 }
 
