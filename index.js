@@ -23,6 +23,11 @@ let rows = columns/2;
 xIncrement = canvas.width/columns;
 yIncrement = canvas.height/rows;
 
+function updateSize() {
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+}
+
 function drawCharAtLoc(string, x, y) {
     ctx.fillStyle = "#03A062";
     ctx.font = 150/columns + "vw Monocraft";
