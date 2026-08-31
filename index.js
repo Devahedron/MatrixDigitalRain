@@ -36,6 +36,14 @@ function drawCharAtLoc(string, x, y) {
         (canvas.width*(8/6)/numColumns)+(y*(canvas.width*(8/6)/numColumns)));
 }
 
+function drawCharAtLocFade(string, time, x, y) {
+    ctx.fillStyle = "#03A062";
+    ctx.font = 150/numColumns + "vw Monocraft";
+    ctx.fillText(string,
+        (x+1/6)*(canvas.width/numColumns),
+        (canvas.width*(8/6)/numColumns)+(y*(canvas.width*(8/6)/numColumns)));
+}
+
 function drawAll() {
     clearAll();
     updateSize();
@@ -59,7 +67,7 @@ for (var x = 0; x < numColumns; x++) {
     }
 }
 
-let rainLength = 15;
+let rainLength = 10;
 
 function rainDrop() {
     column = Math.floor(Math.random() * numColumns);
@@ -90,6 +98,22 @@ function drawMatrix() {
     for (var x = 0; x < numColumns; x++) {
         for (var y = 0; y < numRows; y++) {
             drawCharAtLoc(columns[x][y][1], x, y);
+        }
+    }
+}
+
+function debugMatrix() {
+    for (var x = 0; x < numColumns; x++) {
+        for (var y = 0; y < numRows; y++) {
+            drawCharAtLoc(columns[x][y][0], x, y);
+        }
+    }
+}
+
+function drawMatrixFade() {
+    for (var x = 0; x < numColumns; x++) {
+        for (var y = 0; y < numRows; y++) {
+            drawCharAtLocFade(columns[x][y][1], columns[x][y][0], x, y);
         }
     }
 }
