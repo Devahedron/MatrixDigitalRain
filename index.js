@@ -14,6 +14,7 @@ xIncrement = canvas.width/numColumns;
 yIncrement = canvas.height/numRows;
 
 let rainLength = 15;
+let rainDropNum = 3;
 
 let columns = [];
 
@@ -152,7 +153,7 @@ function draw() {
     clearAll();
     updateSize();
     updateMatrix();
-    rainDropMultiple(3);
+    rainDropMultiple(rainDropNum);
     drawMatrixFade();
 }
 
