@@ -17,7 +17,7 @@ const ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-let columns = 10;
+let columns = 80;
 let rows = columns/2;
 
 xIncrement = canvas.width/columns;
@@ -35,6 +35,10 @@ function drawAll() {
             drawCharAtLoc(randomString(1), x, y);
         }
     }
+}
+
+function clearAll() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 drawAll();
