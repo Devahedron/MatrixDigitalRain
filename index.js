@@ -59,7 +59,7 @@ for (var x = 0; x < numColumns; x++) {
     }
 }
 
-let rainLength = 10;
+let rainLength = 15;
 
 function rainDrop() {
     column = Math.floor(Math.random() * numColumns);
@@ -70,10 +70,17 @@ function rainDrop() {
 function updateMatrix() {
     for (var x = 0; x < numColumns; x++) {
         for (var y = 0; y < numRows; y++) {
+            if (columns[x][y][0]==rainLength) {
+                if (y+1<numRows) {
+                    columns[x][y+1][0] = rainLength+1;
+                    columns[x][y+1][1] = randomString(1);
+                }
+            }
             if (columns[x][y][0]>0) {
                 columns[x][y][0]--;
-            } else if (columns[x][y][0]==rainLength) {
-
+            }
+            if (columns[x][y][0]==0) {
+                columns[x][y][1] = "";
             }
         }
     }
@@ -90,9 +97,10 @@ function drawMatrix() {
 function draw() {
     clearAll();
     updateSize();
-    rainDrop();
     updateMatrix();
+    rainDrop();
+    rainDrop();
     drawMatrix();
 }
 
-//drawInterval = setInterval(drawAll, 100);
+drawInterval = setInterval(draw, 100);
