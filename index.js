@@ -17,11 +17,11 @@ const ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-let columns = 80;
-let rows = columns;
+let numColumns = 80;
+let numRows = numColumns;
 
-xIncrement = canvas.width/columns;
-yIncrement = canvas.height/rows;
+xIncrement = canvas.width/numColumns;
+yIncrement = canvas.height/numRows;
 
 function updateSize() {
     canvas.height = window.innerHeight;
@@ -30,14 +30,17 @@ function updateSize() {
 
 function drawCharAtLoc(string, x, y) {
     ctx.fillStyle = "#03A062";
-    ctx.font = 150/columns + "vw Monocraft";
-    ctx.fillText(string, (x+1/6)*(canvas.width/columns), (canvas.width*(8/6)/columns)+(y*(canvas.width*(8/6)/columns)));
+    ctx.font = 150/numColumns + "vw Monocraft";
+    ctx.fillText(string,
+        (x+1/6)*(canvas.width/numColumns),
+        (canvas.width*(8/6)/numColumns)+(y*(canvas.width*(8/6)/numColumns)));
 }
 
 function drawAll() {
     clearAll();
-    for (var x = 0; x < columns; x++) {
-        for (var y = 0; y < rows; y++) {
+    updateSize();
+    for (var x = 0; x < numColumns; x++) {
+        for (var y = 0; y < numRows; y++) {
             drawCharAtLoc(randomString(1), x, y);
         }
     }
@@ -47,16 +50,49 @@ function clearAll() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
-let rainDrops = [];
-let rainDropLength = 10;
+let columns = [];
+
+for (var x = 0; x < numColumns; x++) {
+    columns[x] = [];
+    for (var y = 0; y < numRows; y++) {
+        columns[x][y] = [0, ""];
+    }
+}
+
+let rainLength = 10;
 
 function rainDrop() {
-    drawCharAtLoc(randomString(1), (Math.floor(Math.random() * columns)), 0)
+    column = Math.floor(Math.random() * numColumns);
+    columns[column][0][0] = rainLength;
+    columns[column][0][1] = randomString(1);
+}
+
+function updateMatrix() {
+    for (var x = 0; x < numColumns; x++) {
+        for (var y = 0; y < numRows; y++) {
+            if (columns[x][y][0]>0) {
+                columns[x][y][0]--;
+            } else if (columns[x][y][0]==rainLength) {
+
+            }
+        }
+    }
+}
+
+function drawMatrix() {
+    for (var x = 0; x < numColumns; x++) {
+        for (var y = 0; y < numRows; y++) {
+            drawCharAtLoc(columns[x][y][1], x, y);
+        }
+    }
 }
 
 function draw() {
     clearAll();
+    updateSize();
     rainDrop();
+    updateMatrix();
+    drawMatrix();
 }
 
-drawInterval = setInterval(drawAll, 100);
+//drawInterval = setInterval(drawAll, 100);
