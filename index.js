@@ -159,3 +159,11 @@ function draw() {
 
 // Sets draw() to run at the desired frames per second
 drawInterval = setInterval(draw, (1000/FPS));
+
+function toggleSettings() {
+    if (document.getElementById('settingsPanel').style.display=='block') {
+        document.getElementById('settingsPanel').style.display ='none';
+    } else {
+        document.getElementById('settingsPanel').style.display ='block';
+    }
+}
