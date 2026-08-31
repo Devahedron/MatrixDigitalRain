@@ -38,11 +38,6 @@ function randomString(length) {
     return string;
 }
 
-// Returns a random character
-function randomChar() {
-    randomString(1);
-}
-
 // Updates the size of the window
 function updateSize() {
     canvas.height = window.innerHeight;
@@ -73,7 +68,7 @@ function drawAll() {
     updateSize();
     for (var x = 0; x < numColumns; x++) {
         for (var y = 0; y < numRows; y++) {
-            drawCharAtLoc(randomChar(), x, y);
+            drawCharAtLoc(randomString(1), x, y);
         }
     }
 }
@@ -87,7 +82,7 @@ function clearAll() {
 function rainDrop() {
     column = Math.floor(Math.random() * numColumns);
     columns[column][0][0] = rainLength;
-    columns[column][0][1] = randomChar();
+    columns[column][0][1] = randomString(1);
 }
 
 // Updates all vaules in the matrix for the next frame
@@ -97,7 +92,7 @@ function updateMatrix() {
             if (columns[x][y][0]==rainLength) {
                 if (y+1<numRows) {
                     columns[x][y+1][0] = rainLength+1;
-                    columns[x][y+1][1] = randomChar();
+                    columns[x][y+1][1] = randomString(1);
                 }
             }
             if (columns[x][y][0]>0) {
