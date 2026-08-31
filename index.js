@@ -73,7 +73,7 @@ function drawAll() {
     updateSize();
     for (var x = 0; x < numColumns; x++) {
         for (var y = 0; y < numRows; y++) {
-            drawCharAtLoc(randomString(1), x, y);
+            drawCharAtLoc(randomChar(), x, y);
         }
     }
 }
@@ -87,7 +87,7 @@ function clearAll() {
 function rainDrop() {
     column = Math.floor(Math.random() * numColumns);
     columns[column][0][0] = rainLength;
-    columns[column][0][1] = randomString(1);
+    columns[column][0][1] = randomChar();
 }
 
 // Updates all vaules in the matrix for the next frame
@@ -97,7 +97,7 @@ function updateMatrix() {
             if (columns[x][y][0]==rainLength) {
                 if (y+1<numRows) {
                     columns[x][y+1][0] = rainLength+1;
-                    columns[x][y+1][1] = randomString(1);
+                    columns[x][y+1][1] = randomChar();
                 }
             }
             if (columns[x][y][0]>0) {
