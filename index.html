@@ -18,24 +18,27 @@
                 </span>
             </button>
 
-            <div id="settingsPanel" class="settings-panel settings-success settings-display-container" style="display: block;">
+            <div id="settingsPanel" class="settings-panel settings-success settings-display-container" style="display: none;">
                 <p>Settings:</p><br>
-                <label for="color">Color:</label>
-                <input type="color" id="color" value="#00ff99"><br>
-                <input type="button" value="Toggle Raindbow"><br>
-                <input type="button" value="Toggle Fading"><br>
-                <input type="button" value="Toggle Debug"><br>
-                <input type="button" value="Pause"><br>
-                <label for="inputColumns">Columns:</label><br>
-                <input type="text" id="inputColumns" value="getNumColumns()"><br>
+                <!-- <input type="button" value="Toggle Raindbow"><br> -->
+                <input type="button" value="Toggle Fading" onclick="toggleFade()"><br>
+                <input type="button" value="Toggle Debug" onclick="toggleDebug()"><br>
+                <input type="button" value="Pause" onclick="pause()">
+                <input type="button" value="Unpause" onclick="unpause()"><br>
+                <!-- <label for="inputColumns">Columns:</label><br>
+                <input type="text" id="inputColumns" value="80"><br>
                 <label for="inputRows">Rows:</label><br>
                 <input type="text" id="inputRows" value="80"><br>
                 <label for="inputChars">Character Set:</label><br>
                 <input type="text" id="inputChars" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥"><br>
                 <label for="inputFPS">FPS:</label><br>
-                <input type="text" id="inputFPS" value="30"><br>
-                <input type="submit" value="Save Settings"><br>
-                <input type="button" value="Reset to Default">
+                <input type="text" id="inputFPS" value="15"><br>
+                <label for="inputRLength">Rain Length:</label><br>
+                <input type="text" id="inputRLength" value="15"><br>
+                <label for="inputRPF">Rain Created per Frame:</label><br>
+                <input type="text" id="inputRPF" value="3"><br>
+                <input type="button" value="Save Settings" onclick="updateVars()"><br>
+                <input type="button" value="Reset to Default" onclick="resetVars()"> -->
             </div>
         </div>
         <canvas id="matrixCanvas"></canvas>

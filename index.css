@@ -32,10 +32,10 @@ button {
 #settingsPanel {
     background-color: black;
     color:#00ff99;
-    padding: 10px;
-    margin: 10px;
-    width: 350px;
-    height: 600px;
+    padding: 20px;
+    margin: 5px;
+    width: 200px;
+    height: 200px;
     border-radius: 15px;
     border: 5px solid #00ff99;
 }

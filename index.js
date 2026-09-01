@@ -5,21 +5,24 @@ const ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
-let charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥";
+var charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥";
 let defaultCharSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥";
 
-let numColumns = 80;
+var numColumns = 80;
 let defaultNumColumns = 80;
-let numRows = numColumns;
+var numRows = numColumns;
 let defaultNumRows = 80;
 
-let FPS = 15;
+var FPS = 15;
+let defaultFPS = 15;
 
 xIncrement = canvas.width/numColumns;
 yIncrement = canvas.height/numRows;
 
-let rainLength = 15;
-let rainDropNum = 3;
+var rainLength = 15;
+let defaultRainLength = 15;
+var rainDropNum = 3;
+let defaultRainDropNum = 3;
 
 let columns = [];
 
@@ -46,24 +49,28 @@ function getFPS() {
 function getRainLength() {
     return rainLength;
 }
-function getRainLength() {
-    return rainLength;
-}
-function getRainLength() {
-    return rainLength;
-}
-function getRainLength() {
-    return rainLength;
-}
-function getRainLength() {
-    return rainLength;
-}
-function getRainLength() {
-    return rainLength;
+function getRainDropNum() {
+    return rainDropNum;
 }
 
 function updateVars() {
+    pause();
+    numColumns = document.getElementById("inputColumns").value;
+    numRows = document.getElementById("inputColumns").value;
+    charSet = document.getElementById("inputChars").value;
+    FPS = document.getElementById("inputFPS").value;
+    rainLength = document.getElementById("inputRLength").value;
+    rainDropNum = document.getElementById("inputRPF").value;
+    unpause();
+}
 
+function resetVars() {
+    numColumns = defaultNumColumns;
+    numRows = defaultNumRows;
+    charSet = defaultCharSet;
+    FPS = defaultFPS;
+    rainLength = defaulTrainLength;
+    rainDropNum = defaulTrainDropNum;
 }
 
 // Returns random string of desired length
@@ -197,13 +204,81 @@ function draw() {
     drawMatrixFade();
 }
 
+function drawNoFade() {
+    clearAll();
+    updateSize();
+    updateMatrix();
+    rainDropMultiple(rainDropNum);
+    drawMatrix();
+}
+
+function drawDebug() {
+    clearAll();
+    updateSize();
+    updateMatrix();
+    rainDropMultiple(rainDropNum);
+    debugMatrix();
+}
+
 // Sets draw() to run at the desired frames per second
 drawInterval = setInterval(draw, (1000/FPS));
+drawNoFadeInterval = false;
+drawDebugInterval = false;
+
+function pause() {
+    clearInterval(drawInterval);
+    clearInterval(drawNoFadeInterval);
+    clearInterval(drawDebugInterval);
+    drawInterval = false;
+    drawNoFadeInterval = false;
+    drawDebugInterval = false;
+}
+
+function unpause() {
+    if (drawInterval==false) {
+        drawInterval = setInterval(draw, (1000/FPS));
+    }
+}
 
 function toggleSettings() {
     if (document.getElementById('settingsPanel').style.display=='block') {
         document.getElementById('settingsPanel').style.display ='none';
     } else {
         document.getElementById('settingsPanel').style.display ='block';
+    }
+}
+
+function toggleFade() {
+    if (drawNoFadeInterval==false) {
+        clearInterval(drawInterval);
+        clearInterval(drawDebugInterval);
+        drawInterval = false;
+        drawDebugInterval = false;
+
+        drawNoFadeInterval = setInterval(drawNoFade, (1000/FPS));
+    } else if (drawInterval==false) {
+        clearInterval(drawNoFadeInterval);
+        clearInterval(drawDebugInterval);
+        drawNoFadeInterval = false;
+        drawDebugInterval = false;
+        drawInterval = setInterval(draw, (1000/FPS));
+    }
+}
+
+function toggleDebug() {
+    if (drawDebugInterval==false) {
+        clearInterval(drawInterval);
+        clearInterval(drawNoFadeInterval);
+        drawInterval = false;
+        drawNoFadeInterval = false;
+
+        drawDebugInterval = setInterval(drawDebug, (1000/FPS));
+    } else if (drawInterval==false) {
+        clearInterval(drawDebugInterval);
+        clearInterval(drawNoFadeInterval);
+        drawDebugInterval = false;
+        drawNoFadeInterval = false;
+
+        drawInterval = setInterval(draw, (1000/FPS));
     }
 }
