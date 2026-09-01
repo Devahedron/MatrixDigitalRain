@@ -11,28 +11,34 @@
     </head>
 
     <body>
-        <div id="container">
+        <div id="settings">
             <button class="settings-button settings-black" onclick="toggleSettings()">
                 <span class="material-symbols-outlined">
                     settings
                 </span>
             </button>
 
-            <div id="settingsPanel" class="settings-panel settings-success settings-display-container" style="display: none;">
-                <p>This panel was hidden.</p>
+            <div id="settingsPanel" class="settings-panel settings-success settings-display-container" style="display: block;">
+                <p>Settings:</p><br>
+                <label for="color">Color:</label>
+                <input type="color" id="color" value="#00ff99"><br>
+                <input type="button" value="Toggle Raindbow"><br>
+                <input type="button" value="Toggle Fading"><br>
+                <input type="button" value="Toggle Debug"><br>
+                <input type="button" value="Pause"><br>
+                <label for="inputColumns">Columns:</label><br>
+                <input type="text" id="inputColumns" value="getNumColumns()"><br>
+                <label for="inputRows">Rows:</label><br>
+                <input type="text" id="inputRows" value="80"><br>
+                <label for="inputChars">Character Set:</label><br>
+                <input type="text" id="inputChars" value="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥"><br>
+                <label for="inputFPS">FPS:</label><br>
+                <input type="text" id="inputFPS" value="30"><br>
+                <input type="submit" value="Save Settings"><br>
+                <input type="button" value="Reset to Default">
             </div>
-            <!--
-            <div class="w3-container w3-light-grey">
-            <p>This is a container.</p>
-            </div>
-
-            <div class="w3-panel w3-light-grey">
-            <p>This is a panel.</p>
-            </div>
-            -->
-
-            <canvas id="matrixCanvas"></canvas>
         </div>
+        <canvas id="matrixCanvas"></canvas>
     </body>
 
 </html>

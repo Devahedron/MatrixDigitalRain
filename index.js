@@ -5,8 +5,13 @@ const ctx = canvas.getContext('2d');
 canvas.height = window.innerHeight;
 canvas.width = window.innerWidth;
 
+let charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥";
+let defaultCharSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥";
+
 let numColumns = 80;
+let defaultNumColumns = 80;
 let numRows = numColumns;
+let defaultNumRows = 80;
 
 let FPS = 15;
 
@@ -25,15 +30,50 @@ for (var x = 0; x < numColumns; x++) {
     }
 }
 
+// "Get variable" functions:
+function getNumColumns() {
+    return numColumns;
+}
+function getNumRows() {
+    return numRows;
+}
+function getCharSet() {
+    return charSet;
+}
+function getFPS() {
+    return FPS;
+}
+function getRainLength() {
+    return rainLength;
+}
+function getRainLength() {
+    return rainLength;
+}
+function getRainLength() {
+    return rainLength;
+}
+function getRainLength() {
+    return rainLength;
+}
+function getRainLength() {
+    return rainLength;
+}
+function getRainLength() {
+    return rainLength;
+}
+
+function updateVars() {
+
+}
+
 // Returns random string of desired length
 function randomString(length) {
 
     var string = "";
-    var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789⚥";
-    var charactersLength = characters.length;
+    var charactersLength = charSet.length;
 
     for (var i = 0; i < length; i++) {
-        string += characters.charAt(Math.floor(Math.random() * charactersLength));
+        string += charSet.charAt(Math.floor(Math.random() * charactersLength));
     }
     
     return string;
